@@ -1,10 +1,5 @@
-import sys
-import os
-
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-
-from app.calculator import add, subtract, multiply, divide
 import pytest
+from app.calculator import add, subtract, multiply, divide, square
 
 
 def test_add():
@@ -26,3 +21,9 @@ def test_divide():
 def test_divide_by_zero():
     with pytest.raises(ValueError):
         divide(10, 0)
+
+
+def test_square():
+    assert square(4) == 16
+    assert square(-3) == 9
+    assert square(0) == 0
